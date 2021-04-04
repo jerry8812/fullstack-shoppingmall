@@ -1,8 +1,8 @@
 # fullstack-shoppingmall
-E-shopping phone application.
-Operating System: Windows 10
-Develoment Tools: IntelliJ IDEA, JDK 13, Springboot2, Mybatis, Vue.js
-Database: MySQL, MySQL Workbench
+E-shopping phone application.    
+**Operating** **System**: Windows 10   
+**Develoment** **Tools**: IntelliJ IDEA, JDK 13, Springboot2, Mybatis, Vue.js   
+**Database**: MySQL, MySQL Workbench   
 ### 1. Introduction
 Online shopping is something that most of us take for granted these days, we enjoy the convenience and other benifits of shopping online.
 ### 2. Objective
