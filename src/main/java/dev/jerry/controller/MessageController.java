@@ -13,3 +13,4 @@ public class MessageController {
         return "Full Stack Java Application";
     }
 }
+
