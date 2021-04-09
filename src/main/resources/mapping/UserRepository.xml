@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.jerry.repository.UserRepository">
+    <select id="findAll" resultType="User">
+        select * from user
+    </select>
+
+    <select id="findById" parameterType="String" resultType="User">
+        select * from user where user_id = #{id}
+    </select>
+
+    <insert id="save" parameterType="User">
+        insert into user
+            (user_id, first_name, last_name, email, phone_number,
+             nick_name, password, dob, create_time, is_delete, gender)
+            values
+                   (#{userId}, #{firstName}, #{lastName}, #{email}, #{phoneNumber}, #{nickName},
+                    #{password}, #{dob}, #{createTime}, #{isDelete}, #{gender})
+    </insert>
+
+    <update id="update" parameterType="User">
+        update user set user_id = #{userId}, first_name = #{firstName}, last_name = #{lastName},
+                        email = #{email}, phone_number = #{phoneNumber}, nick_name = #{nickName},
+                        password = #{password}, dob = #{dob}, create_time = #{createTime},
+                        is_delete = #{isDelete}, gender = #{gender}
+    </update>
+
+    <delete id="deleteById" parameterType="String">
+        delete from user where user_id = #{userId}
+    </delete>
+</mapper>
