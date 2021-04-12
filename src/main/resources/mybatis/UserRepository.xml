@@ -3,11 +3,14 @@
 
 <mapper namespace="dev.jerry.repository.UserRepository">
     <select id="findAll" resultType="User">
-        select * from user
+        select *
+        from user
     </select>
 
     <select id="findById" parameterType="String" resultType="User">
-        select * from user where user_id = #{id}
+        select *
+        from user
+        where user_id = #{id}
     </select>
 
     <insert id="save" parameterType="User">
@@ -20,13 +23,15 @@
     </insert>
 
     <update id="update" parameterType="User">
-        update user set user_id = #{userId}, first_name = #{firstName}, last_name = #{lastName},
+        update user
+        set user_id = #{userId}, first_name = #{firstName}, last_name = #{lastName},
                         email = #{email}, phone_number = #{phoneNumber}, nick_name = #{nickName},
                         password = #{password}, dob = #{dob}, create_time = #{createTime},
                         is_delete = #{isDelete}, gender = #{gender}
     </update>
 
     <delete id="deleteById" parameterType="String">
-        delete from user where user_id = #{userId}
+        delete from user
+        where user_id = #{userId}
     </delete>
 </mapper>

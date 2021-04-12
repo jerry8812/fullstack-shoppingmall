@@ -12,7 +12,7 @@ spring:
       hibernate:
         format_sql: true
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
+  mapper-locations: classpath:/mybatis/*.xml
   type-aliases-package: dev.jerry.entity
   configuration:
     map-underscore-to-camel-case: true
