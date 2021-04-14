@@ -18,4 +18,7 @@ public class Images {
     private Integer imgHeight;
     private Date dateOfUpload;
     private Integer isDelete;
+    private String description;
+
+    private transient String url;
 }

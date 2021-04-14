@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/images")
@@ -19,16 +20,15 @@ public class ImagesController {
     private ImageServiceImpl imageService;
 
     @GetMapping("/{imageType}")
-    public List<String> getImageUrl(@PathVariable String imageType) {
+    public List<Images> getImageUrl(@PathVariable String imageType) {
 
-        List<String> imgUrls = new ArrayList<String>();
         List<Images> allImages = imageService.getImagesByType(imageType);
 
         for (Images image: allImages
              ) {
             String imgUrl = "http://localhost:8080/image/" + image.getImgType() + "/" + image.getImgName();
-            imgUrls.add(imgUrl);
+            image.setUrl(imgUrl);
         }
-        return imgUrls;
+        return allImages;
     }
 }
