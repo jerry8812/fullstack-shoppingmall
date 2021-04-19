@@ -24,13 +24,7 @@ public class ImagesController {
 
     @GetMapping("/groupImages/{imageTag}")
     public List<Images> getImageUrl(@PathVariable String imageTag) {
-
-        List<Images> images = imageService.getImagesByType(imageTag);
-        for (Images image: images
-             ) {
-            image.setImgUrl("http://localhost:8080/image/" + image.getImageId());
-        }
-        return images;
+        return imageService.getImagesByType(imageTag);
     };
 
     @GetMapping(value = "/{imageId}", produces = {MediaType.IMAGE_GIF_VALUE, MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE})

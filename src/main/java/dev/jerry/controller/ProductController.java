@@ -25,11 +25,7 @@ public class ProductController {
         productQuery.setProductTag(productTag);
         productQuery.setPageSize(pageSize);
         productQuery.setPageNum(pageNum);
-        PageInfo<Product> productPageInfo = productService.getProductsByTag(productQuery);
-        for (Product product: productPageInfo.getList()
-             ) {
-            product.setImgUrl("http://localhost:8080/image/" + product.getImageId());
-        }
-        return productPageInfo;
+
+        return productService.getProductsByTag(productQuery);
     }
 }

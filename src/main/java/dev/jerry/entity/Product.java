@@ -15,5 +15,4 @@ public class Product {
     private Integer instock;
     private String categoryId;
 
-    private transient String imgUrl;
 }

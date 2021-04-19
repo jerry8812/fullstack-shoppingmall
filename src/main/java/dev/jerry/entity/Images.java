@@ -19,6 +19,4 @@ public class Images {
     private Date dateOfUpload;
     private Integer isDelete;
     private String tag;
-
-    private transient String imgUrl;
 }
