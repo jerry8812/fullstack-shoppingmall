@@ -15,7 +15,12 @@ public class ImageServiceImpl implements ImagesService {
     private ImagesRepository imagesRepository;
 
     @Override
-    public List<Images> getImagesByType(String imageType) {
-        return imagesRepository.getImagesByType(imageType);
+    public List<Images> getImagesByType(String imageTag) {
+        return imagesRepository.getImagesByTag(imageTag);
+    }
+
+    @Override
+    public Images getImageById(String imageId) {
+        return imagesRepository.getImageById(imageId);
     }
 }

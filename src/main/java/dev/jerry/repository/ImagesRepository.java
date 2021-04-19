@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ImagesRepository {
 
-    public List<Images> getImagesByType(String type);
+    public List<Images> getImagesByTag(String imageTag);
 
-
+    public Images getImageById(String imageId);
 }

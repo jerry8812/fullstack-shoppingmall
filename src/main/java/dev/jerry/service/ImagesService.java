@@ -9,4 +9,6 @@ import java.util.List;
 public interface ImagesService {
 
     public List<Images> getImagesByType(String imageType);
+
+    public Images getImageById(String imageId);
 }
