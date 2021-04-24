@@ -5,21 +5,29 @@
     <select id="findAll" resultType="User">
         select *
         from user
+        where is_delete = 1
     </select>
 
     <select id="findById" parameterType="String" resultType="User">
         select *
         from user
         where user_id = #{id}
+        and is_delete = 1
+    </select>
+
+    <select id="findUserByEmail" parameterType="String" resultType="User">
+        select *
+        from user
+        where email = #{email}
+        and is_delete = 1
     </select>
 
     <insert id="save" parameterType="User">
         insert into user
-            (user_id, first_name, last_name, email, phone_number,
-             nick_name, password, dob, create_time, is_delete, gender)
+            (user_id, first_name, last_name, email, password, dob, create_time, is_delete, gender)
             values
-                   (#{userId}, #{firstName}, #{lastName}, #{email}, #{phoneNumber}, #{nickName},
-                    #{password}, #{dob}, #{createTime}, #{isDelete}, #{gender})
+                   (#{userId}, #{firstName}, #{lastName}, #{email},
+                    md5(#{password}), #{dob}, CURRENT_TIMESTAMP(), 1, #{gender})
     </insert>
 
     <update id="update" parameterType="User">

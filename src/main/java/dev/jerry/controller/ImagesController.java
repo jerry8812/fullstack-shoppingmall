@@ -1,5 +1,6 @@
 package dev.jerry.controller;
 
+import dev.jerry.common.CommonResult;
 import dev.jerry.entity.Images;
 import dev.jerry.service.impl.ImageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +17,17 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 
 @RestController
-@RequestMapping("/image")
+@RequestMapping("/images")
 public class ImagesController {
 
     @Autowired
     private ImageServiceImpl imageService;
 
     @GetMapping("/groupImages/{imageTag}")
-    public List<Images> getImageUrl(@PathVariable String imageTag) {
-        return imageService.getImagesByType(imageTag);
+    public CommonResult<List<Images>> getImageUrl(@PathVariable String imageTag) {
+
+        List<Images> imagesList = imageService.getImagesByType(imageTag);
+        return CommonResult.success(imagesList);
     };
 
     @GetMapping(value = "/{imageId}", produces = {MediaType.IMAGE_GIF_VALUE, MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE})
@@ -34,6 +37,7 @@ public class ImagesController {
         String imagePath = "/images/" + image.getTag() + "/" + image.getImgName();
 
         Resource imgResource = new ClassPathResource(imagePath);
-        return ImageIO.read(imgResource.getInputStream());
+        BufferedImage bufferedImage = ImageIO.read(imgResource.getInputStream());
+        return bufferedImage;
     }
 }

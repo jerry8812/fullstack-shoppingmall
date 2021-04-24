@@ -1,10 +1,15 @@
 package dev.jerry.service;
 
 import dev.jerry.entity.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 public interface UserService {
-    public List<User> findAll();
+    List<User> findAll();
+
+    User findUserByEmail(String email);
+
+    int save(User user);
+
+    User login(User user);
 }
