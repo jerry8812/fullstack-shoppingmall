@@ -1,5 +1,4 @@
-# fullstack-shoppingmall
-E-shopping phone application.    
+# fullstack-shoppingmall   
 **Operating** **System**: Windows 10   
 **Development** **Tools**: IntelliJ IDEA, JDK 13, Springboot2, Mybatis, Vue.js   
 **Database**: MySQL, MySQL Workbench   
